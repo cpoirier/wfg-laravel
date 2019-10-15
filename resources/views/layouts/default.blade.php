@@ -42,6 +42,7 @@
 
     <main id="main">
       <a name="content"></a>
+      <a href="#top" class="visually-hidden visually-hidden--focusable">Back to top</a>
       <div class="content">
         @section('content')
           This is the main content
