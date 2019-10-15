@@ -1,0 +1,1 @@
+<li class="pure-menu-item">{{ $slot }}</li>
