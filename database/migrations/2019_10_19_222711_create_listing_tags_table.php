@@ -15,10 +15,11 @@ class CreateListingTagsTable extends Migration
     {
         Schema::create('listing_tags', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('tag' , 30);
+            $table->string('name', 30);
             $table->string('slug', 30);
+            $table->integer('count');
 
-            $table->unique(['tag']);
+            $table->unique(['name']);
             $table->unique(['slug']);
         });
     }

@@ -64,6 +64,12 @@ join (select ID as listing_id from wp_wfg_full_listings where update_frequency >
 ;
 
 
+update listing_tags t
+set count = (SELECT count(*) from listing_tag_sets s where s.tag_id = t.id)
+;
+
+
+
 -- listing_votes
 
 select
