@@ -3,11 +3,15 @@ version: '2'
 services:
   mariadb:
     image: 'bitnami/mariadb:10.1'
+    ports:
+      - "3406:3306"
     environment:
       - ALLOW_EMPTY_PASSWORD=yes
       - MARIADB_USER=my_user
       - MARIADB_DATABASE=my_database
       - MARIADB_PASSWORD=my_password
+    volumes:
+      - ../db:/bitnami/mariadb
 
   wfg:
     tty: true
