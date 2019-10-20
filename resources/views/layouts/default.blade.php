@@ -13,7 +13,7 @@
   <link rel="stylesheet" href="{{ URL::asset('css/styles.css') }}">
 
   @stack('head_links')
-  @stack('head_scripts');
+  @stack('head_scripts')
 
 </head>
 <body>
