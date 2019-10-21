@@ -15,15 +15,20 @@ class CreateReviewsTable extends Migration
     {
         Schema::create('reviews', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->bigInteger('author_id');
+            $table->bigInteger('user_id');
             $table->bigInteger('listing_id')->nullable();
             $table->timestampsTz();
             $table->softDeletes();
             $table->bitInteger('deleted_by')->nullable();
+
             $table->string('title', 90);
             $table->text('text');
+            $table->string('pull_quote', 500);
+
             $table->string('listing_title_when_reviewed', 255);
             $table->string('listing_author_when_reviewed', 255);
+            $table->integer('up_votes');
+            $table->integer('down_votes');
 
             $table->index(['listing_id', 'created_at']);
             $table->index(['author_id', 'updated_at']);

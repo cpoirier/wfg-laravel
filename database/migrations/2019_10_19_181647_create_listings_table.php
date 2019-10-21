@@ -22,8 +22,8 @@ class CreateListingsTable extends Migration
 
             $table->string('title', 120);
             $table->string('author_name', 120);
-            $table->bigInteger('owner_id')->nullable();
-            $table->boolean('owner_is_author')->nullable();
+            $table->bigInteger('user_id')->nullable();
+            $table->boolean('user_is_author')->nullable();
             $table->string('slug', 120);
 
             // Description
@@ -69,6 +69,7 @@ class CreateListingsTable extends Migration
             $table->index('title_soundex');
             $table->index('author_name');
             $table->index('author_soundex');
+            $table->index(['user_id', 'user_is_author'])
         });
     }
 

@@ -85,7 +85,7 @@ where o.recommended = 1 or o.rating >= 4.0 or o.rating <= 2.5
 
 select
   r.`ID` AS `id`,
-  a.`ID` AS `author_id`,
+  a.`ID` AS `user_id`,
   o.listing_id as listing_id,
   r.`post_date` AS `created_at`,
   r.`post_date` AS `updated_at`,
@@ -108,6 +108,11 @@ select
    , post_id as review_id
    , if(recommended = 1, 1, -1) as vote
 from wp_wfg_recommendations r
+;
+
+update reviews r
+set up_votes = (select count(*) from review_votes v where v.review_id = r.id and vote = 1),
+    down_votes = (select count(*) from review_votes v where v.review_id = r.id and vote = -1)
 ;
 
 
