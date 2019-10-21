@@ -11,9 +11,17 @@
 |
 */
 
+Route::get('/listings/{slug}', function ($slug) {
+    $listing = App\Listing::where('slug', $slug)->firstOrFail();
+    return view('listing')->with('listing', $listing);
+})->name('listing');
+
 Route::get('/', function () {
     return view('welcome');
 });
+
+
+Route::view('/test', 'listing');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

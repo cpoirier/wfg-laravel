@@ -57,14 +57,21 @@ body {
   text-align: center;
 }
 
-.content .content-subhead {
+/*.content .content-subhead {
   margin: 2em 0 1em 0;
   font-weight: 300;
   color: #888;
   position: relative;
 }
 
-.content-link {
+*/
+
+header.anchored h2 {
+  position: relative;
+  line-height: 1.4em;
+}
+
+header.anchored a[name] {
   position: absolute;
   top: 0;
   right: 0;
@@ -74,6 +81,10 @@ body {
   background: transparent url('../img/link-icon.png') no-repeat center center;
   background-size: 20px 20px;
 }
+
+/*.content-link {
+}
+*/
 
 @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 2dppx) {
   .content-link {
@@ -141,3 +152,27 @@ pre, code {
     border-color:#129fea
 }
 
+article header {
+  margin: 2em 0 1em 0;
+}
+
+/*section.reviews > header {
+  margin: 2em 0;
+}
+*/
+section.reviews > header h2 {
+  text-align: left;
+  line-height: 1;
+}
+
+article.inline-review header {
+  text-align: left;
+  border-bottom: 0;
+}
+
+article.inline-review header h3, article.inline-review header h4, article.inline-review header h5 {
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-top: 0;
+  padding-bottom: 0;
+}

@@ -36,4 +36,20 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+
+    public function listings()
+    {
+        return $this->hasMany('App\Listing')->where('user_is_author', 1);
+    }
+
+
+    public function getGravatarAttribute()
+    {
+        $email = trim($this->email);
+        $lower = strtolower($email);
+        $hash  = md5($lower);
+
+        return "https://www.gravatar.com/avatar/" . ($email ? $hash : '00000000000000000000000000000000');
+    }
 }
