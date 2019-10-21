@@ -68,6 +68,12 @@ update listing_tags t
 set count = (SELECT count(*) from listing_tag_sets s where s.tag_id = t.id)
 ;
 
+update listings l
+set up_votes = (select count(*) from listing_votes v where v.listing_id = l.id and vote = 1),
+    down_votes = (select count(*) from listing_votes v where v.listing_id = l.id and vote = -1)
+;
+
+
 
 
 -- listing_votes

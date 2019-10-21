@@ -59,6 +59,11 @@ class CreateListingsTable extends Migration
             $table->char('title_soundex', 4)->nullable()->charset('ascii');
             $table->char('author_soundex', 4)->nullable()->charset('ascii');
 
+            // Votes
+
+            $table->integer('up_votes');
+            $table->integer('down_votes');
+
             // Keys
 
             $table->unique('slug');
