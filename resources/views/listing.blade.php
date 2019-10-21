@@ -10,21 +10,21 @@
     @if ($listing->header_image_url)
       <img class="pure-img" src="{{ $listing->header_image_url }}" alt="header">
     @endif
+    <header>
+      <h1>{{ $listing->title }} <span class="byline">by {{ $listing->author_name }}</span></h1>
+    </header>
 
     <div class="pure-g">
       <section class="listing-blurb pure-u-1 pure-u-md-17-24">
         <div class="space-on-right">
-          <header style="border-bottom: 0">
-            <h1>{{ $listing->title }}</h1>
-            <h2>by {{ $listing->author_name }}</h2>
-          </header>
 
           @section('blurb')
             @if ($listing->tagline)
-              <h3>{{ $listing->tagline }}</h3>
+              <p><strong>{{ $listing->tagline }}</strong></p>
             @endif
 
             @markdown ($listing->blurb)
+
 
             <p class="center">
               @foreach (array_unique(array_filter(["Home Page" => $listing->story_home_url, "Start Reading" => $listing->first_page_url])) as $type => $url)

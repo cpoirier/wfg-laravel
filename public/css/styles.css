@@ -176,3 +176,20 @@ article.inline-review header h3, article.inline-review header h4, article.inline
   padding-top: 0;
   padding-bottom: 0;
 }
+
+article.listing > header h1, article.listing > header h2 {
+  text-align: left;
+  line-height: 1;
+}
+
+article.listing > header span.byline {
+  font-size: 1.5rem;
+  font-weight: 300;
+  color: #ccc;
+  padding: 0;
+}
+
+article.listing > header {
+  border-bottom: 1px solid #eee;
+}
+
