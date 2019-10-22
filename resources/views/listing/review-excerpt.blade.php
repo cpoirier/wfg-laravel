@@ -9,7 +9,7 @@
     <div class="pure-u-3-24 pure-u-md-2-24">
       <img class="pure-img" src="{{ $author->gravatar }}" class="gravatar" alt="gravatar">
     </div>
-    <div class="pure-u-21-24 pure-u-md-14-24">
+    <div class="pure-u-21-24 pure-u-md-15-24">
       @if ($review->title)
       <h3 class="space-on-left">{{$review->title}}</h3>
       @endif
@@ -29,7 +29,7 @@
     <div class="pure-u-3-24 pure-u-md-2-24">
       <div style="font-size: 7rem; line-height: 1; text-align: right;">&rdquo;</div>
     </div>
-    <div class="pure-u-21-24 pure-u-md-14-24">
+    <div class="pure-u-21-24 pure-u-md-15-24">
       <div class="space-on-left">
         @if ($review->pull_quote)
           @markdown ($review->pull_quote)
@@ -38,7 +38,7 @@
         @endif
       </div>
     </div>
-    <div class="pure-u-1 pure-u-md-8-24">
+    <div class="pure-u-1 pure-u-md-7-24">
       <p class="space-on-left">
         Helpfulness: {{$review->up_votes}} ▲ {{$review->down_votes}} ▽
         <br>
