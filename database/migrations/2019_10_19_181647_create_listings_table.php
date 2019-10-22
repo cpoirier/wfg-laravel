@@ -28,7 +28,7 @@ class CreateListingsTable extends Migration
 
             // Description
 
-            $table->string('tagline', 80);
+            $table->string('tagline', 120);
             $table->text('blurb');
 
             // Status and advisories

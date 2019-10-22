@@ -25,8 +25,8 @@ select
     ID as id
   , post_title as title
   , author_name as author_name
-  , if(author_id > 0, author_id, 3) as owner_id
-  , if(author_id > 0, 1, 0) as owner_is_author
+  , if(author_id > 0, author_id, 3) as user_id
+  , if(author_id > 0, 1, 0) as user_is_author
   , post_name as slug
   , tagline as tagline
   , post_content as blurb
