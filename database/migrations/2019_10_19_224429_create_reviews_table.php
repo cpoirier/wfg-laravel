@@ -31,7 +31,7 @@ class CreateReviewsTable extends Migration
             $table->integer('down_votes');
 
             $table->index(['listing_id', 'created_at']);
-            $table->index(['forum_topics 'updated_at']);
+            $table->index(['user_id', 'updated_at']);
         });
     }
 
