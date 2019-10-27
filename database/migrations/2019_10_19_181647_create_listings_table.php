@@ -74,7 +74,7 @@ class CreateListingsTable extends Migration
             $table->index('title_soundex');
             $table->index('author_name');
             $table->index('author_soundex');
-            $table->index(['user_id', 'user_is_author'])
+            $table->index(['user_id', 'user_is_author']);
         });
     }
 
