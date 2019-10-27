@@ -19,7 +19,7 @@ class CreateReviewsTable extends Migration
             $table->bigInteger('listing_id')->nullable();
             $table->timestampsTz();
             $table->softDeletes();
-            $table->bitInteger('deleted_by')->nullable();
+            $table->bigInteger('deleted_by')->nullable();
 
             $table->string('title', 90);
             $table->text('text');
@@ -31,7 +31,7 @@ class CreateReviewsTable extends Migration
             $table->integer('down_votes');
 
             $table->index(['listing_id', 'created_at']);
-            $table->index(['author_id', 'updated_at']);
+            $table->index(['forum_topics 'updated_at']);
         });
     }
 

@@ -47,7 +47,7 @@ where update_frequency > -10
 
 -- listing_tags
 
-select t.term_id as id, t.`name` as tag, t.`slug`
+select t.term_id as id, t.`name` as name, t.`slug`
 from wp_wfg_terms t
 join wp_wfg_term_taxonomy x on x.term_id = t.term_id
 where x.taxonomy = 'post_tag'
@@ -185,7 +185,7 @@ join bb_term_taxonomy x on r.term_taxonomy_id = x.term_taxonomy_id and x.taxonom
 join bb_terms s on x.term_id = s.term_id
 join bb_topics t on t.topic_id = r.object_id
 where length(s.name) <= 30
-order by topic_id, term_id
+order by t.topic_id, x.term_id
 ;
 
 
@@ -193,9 +193,9 @@ order by topic_id, term_id
 -- user points
 
 insert into user_points (user_id, reason_code, subject_id, added_at, expires_at, points)
-select owner_id, 'listing', id, created_at, created_at + interval 1 year, 175
+select user_id, 'listing', id, created_at, created_at + interval 1 year, 175
 from listings
-where owner_is_author = 1
+where user_is_author = 1
 ;
 
 insert into user_points
@@ -207,7 +207,7 @@ where deleted_at is null
 
 insert into user_points
 (user_id, reason_code, subject_id, added_at, expires_at, points)
-select author_id, 'review', id, created_at, created_at + interval 1 year, 100
+select user_id, 'review', id, created_at, created_at + interval 1 year, 100
 from reviews
 ;
 
