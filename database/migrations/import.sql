@@ -1,12 +1,15 @@
+set @for_seed = 1;
+
+
 -- users
 
 select
      id                  as id
    , trim(user_login)    as name
    , trim(user_nicename) as slug
-   , user_email          as email
+   , if(@for_seed, concat('test+', id, '@webfictionguide.com'), user_email) as email
    , user_registered     as email_verified_at
-   , ''                  as password
+   , if(@for_seed, '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', '') as password
    , user_registered     as created_at
 from wp_wfg_users u
 where (
