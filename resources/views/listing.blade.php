@@ -7,39 +7,39 @@
 @section('content')
 
   <article class="listing" about="{{ $listing->title }} by {{ $listing->author_name }}">
-    @if ($listing->header_image_url)
-      <img class="pure-img" src="{{ $listing->header_image_url }}" alt="header">
-    @endif
     <header>
-      <h1>{{ $listing->title }} <span class="byline">by {{ $listing->author_name }}</span></h1>
+      @if ($listing->header_image_url)
+        <img class="pure-img" src="{{ $listing->header_image_url }}" alt="header">
+        <h1>{{ $listing->title }} <span class="byline">by {{ $listing->author_name }}</span></h1>
+      @endif
     </header>
 
     <div class="pure-g">
-      <section class="listing-blurb pure-u-1 pure-u-md-17-24">
-        <div class="space-on-right">
+      <div class="listing-blurb pure-u-1 pure-u-md-16-24">
+        @section('blurb')
+          @if ($listing->tagline)
+            <p><strong>{{ $listing->tagline }}</strong></p>
+          @endif
 
-          @section('blurb')
-            @if ($listing->tagline)
-              <p><strong>{{ $listing->tagline }}</strong></p>
-            @endif
-
-            @markdown ($listing->blurb)
+          @markdown ($listing->blurb)
 
 
-            <p class="center">
-              @foreach (array_unique(array_filter(["Home Page" => $listing->story_home_url, "Start Reading" => $listing->first_page_url])) as $type => $url)
-                @if (!$loop->first)
-                  |
-                @endif
+          <p class="center">
+            @foreach (array_unique(array_filter(["Home Page" => $listing->story_home_url, "Start Reading" => $listing->first_page_url])) as $type => $url)
+              @if (!$loop->first)
+                |
+              @endif
 
-                <a href="{{ $url }}" title="{{ $type }}">{{ $type }}</a>
-              @endforeach
-            </p>
-          @show
-        </div>
-      </section>
+              <a href="{{ $url }}" title="{{ $type }}">{{ $type }}</a>
+            @endforeach
+          </p>
+        @show
+      </div>
 
-      <section class="pure-u-1 pure-u-md-7-24 meta">
+      <div class="pure-u-1 pure-u-md-1-24">
+      </div>
+
+      <div class="pure-u-1 pure-u-md-7-24 meta">
         <p><b>Votes:</b> {{$listing->up_votes}} ▲ {{$listing->down_votes}} ▽ </p>
         <p><b>Listed:</b> {{ $listing->created_at->format('F d, Y') }}</p>
         <p><b>Status:</b> {{ $listing->status }}</p>
@@ -59,8 +59,7 @@
             <li><a href="/{{ $tag->slug }}">{{ $tag->name }}</a> ({{ $tag->count }})</a></li>
           @endforeach
         </ul>
-
-      </section>
+      </div>
     </div>
   </article>
 
