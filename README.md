@@ -1,7 +1,9 @@
 ## WFG Laravel Project Notes
 
 Laravel: https://laravel.com/docs
+
 Main Branch: https://github.com/cpoirier/wfg-laravel
+
 
 ## Initialize Site
 
@@ -43,10 +45,11 @@ find ~/wfgProject -type d -exec chmod 755 {} \;
 
 cd laravel
 
+rm -Rf node_modules
+
+npm cache clear --force
 
 npm install
-
-npm install purecss-sass
 
 npm run dev
 
