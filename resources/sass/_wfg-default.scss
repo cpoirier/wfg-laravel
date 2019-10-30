@@ -1,0 +1,197 @@
+body {
+  line-height: 1.6;
+}
+
+.skip-link__wrapper {
+  margin: 0;
+}
+
+.skip-link:link, .skip-link:visited {
+  background-color: #666666;
+  color: #fff;
+}
+
+.skip-link {
+  display: block;
+  padding: 2px 0 3px;
+  text-align: center;
+}
+
+.visually-hidden {
+  position: absolute !important;
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+  clip: rect(1px, 1px, 1px, 1px);
+  word-wrap: normal;
+}
+
+.no-space-below {
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.no-space-above {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+.space-on-right {
+  padding-right: 1.5rem;
+}
+
+.space-on-left {
+  padding-left: 1.5rem;
+}
+
+.space-above {
+  padding-top: 1.5rem;
+}
+
+.space-below {
+  padding-bottom: 1.5rem;
+}
+
+
+.center {
+  text-align: center;
+}
+
+header.anchored h2 {
+  position: relative;
+  line-height: 1.4em;
+}
+
+header.anchored a[name] {
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: block;
+  height: 100%;
+  width: 20px;
+  background: transparent url('../img/link-icon.png') no-repeat center center;
+  background-size: 20px 20px;
+}
+
+header.anchored a[name]:focus {
+  border: 0;
+}
+
+
+.content-link {
+  @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 2dppx) {
+    background-image: url('../img/link-icon@2x.png');
+  }
+}
+
+
+pre, code {
+  font-family: Consolas, Courier, monospace;
+  color: #333;
+  background: rgb(250, 250, 250);
+}
+
+.code {
+  margin-left: -1em;
+  margin-right: -1em;
+  padding: 1em;
+  border: 1px solid #eee;
+  border-left-width: 0;
+  border-right-width: 0;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  @media screen and (min-width: 48em) {
+    margin-left: auto;
+    margin-right: auto;
+    border-left-width: 1px;
+    border-right-width: 1px;
+  }
+}
+
+#menu a {
+  color: #999;
+  border: none;
+  white-space: normal;
+  padding: 0.625em 1em;
+}
+
+#menu .pure-menu-heading {
+  font-size: 125%;
+  font-weight: 300;
+  letter-spacing: 0.1em;
+  color: #fff;
+  margin-top: 0;
+  padding: 0.5em 0.8em;
+  text-transform: uppercase;
+}
+
+.smaller {
+  font-size: 80%;
+}
+
+.invalid-feedback {
+  display: block;
+  width: 100%;
+  font-size: 80%;
+  color: #e3342f;
+}
+
+.is-invalid {
+  border-color: #e3342f !important;
+}
+
+.pure-form input[type=color]:focus, .pure-form input[type=date]:focus, .pure-form input[type=datetime-local]:focus, .pure-form input[type=datetime]:focus, .pure-form input[type=email]:focus, .pure-form input[type=month]:focus, .pure-form input[type=number]:focus, .pure-form input[type=password]:focus, .pure-form input[type=search]:focus, .pure-form input[type=tel]:focus, .pure-form input[type=text]:focus, .pure-form input[type=time]:focus, .pure-form input[type=url]:focus, .pure-form input[type=week]:focus, .pure-form select:focus, .pure-form textarea:focus {
+    border-color:#129fea
+}
+
+article header {
+  margin: 2em 0 1em 0;
+}
+
+section.reviews > header h2 {
+  text-align: left;
+  line-height: 1;
+}
+
+article.inline-review header {
+  text-align: left;
+  border-bottom: 0;
+}
+
+article.inline-review header h3, article.inline-review header h4, article.inline-review header h5 {
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+article.inline-review header h4, article.inline-review header h5 {
+  color: rgb(119,119,119);
+}
+
+article.listing > header h1, article.listing > header h2 {
+  text-align: left;
+  line-height: 1;
+}
+
+article.listing > header span.byline {
+  font-size: 1.5rem;
+  font-weight: 300;
+  color: #ccc;
+  padding: 0;
+}
+
+.listing > header {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+.quote-mark {
+  font-size: 7rem;
+  line-height: 1;
+  text-align: right;
+}
+
+.pure-g {
+  letter-spacing: normal;
+}

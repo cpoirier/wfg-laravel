@@ -7,10 +7,7 @@
   <meta name="HandheldFriendly" content="true">
   <meta name="viewport" content="width=device-width">
 
-  <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.1/build/pure-min.css">
-  <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.1/build/grids-responsive-min.css">
-  <link rel="stylesheet" href="{{ URL::asset('css/side-menu.css') }}">
-  <link rel="stylesheet" href="{{ URL::asset('css/styles.css') }}">
+  <link rel="stylesheet" href="{{ URL::asset('css/app.css') }}">
 
   @stack('head_links')
   @stack('head_scripts')
