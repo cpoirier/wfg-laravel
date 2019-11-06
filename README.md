@@ -25,23 +25,19 @@ chown $USER:docker wfgProject
 
 cd wfgProject
 
-
-mkdir db
-
-chmod 755 db
-
-
 mv <dbfile.sql> ~/wfgProject
-
 
 git clone https://github.com/<repo>/wfg-laravel.git laravel
 
 git remote add --track master upstream https://github.com/cpoirier/wfg-laravel.git
 
-find ~/wfgProject -type f -exec chmod 644 {} \;
+find ~/wfgProject -type f -exec chmod 644 {} \\;
 
-find ~/wfgProject -type d -exec chmod 755 {} \;
+find ~/wfgProject -type d -exec chmod 755 {} \\;
 
+mkdir db
+
+chmod 777 db
 
 cd laravel
 
@@ -56,7 +52,19 @@ npm run dev
 
 cp .env.example .env
 
+
+-- Compose the first time to install and generate initial build environment
+
+docker-compose up
+
+CTRL+C after completed server start
+
 php artisan key:generate
 
+-- add line to mariadb volumes in docker-compose.yml: - ../wfg.sql:/docker-entrypoint-initdb.d/wfg.sql
+
+chmod 755 ~/wfgProject/db
 
 docker-compose up &
+
+npm run watch &
