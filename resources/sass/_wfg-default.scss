@@ -1,5 +1,8 @@
+@function mod-color-for-url($color) { @return '%23' + str-slice('#{$color}', 2, -1) }
+
 body {
   line-height: 1.6;
+  color: #777;
 }
 
 .skip-link__wrapper {
@@ -77,7 +80,6 @@ header.anchored a[name]:focus {
   border: 0;
 }
 
-
 .content-link {
   @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 2dppx) {
     background-image: url('../img/link-icon@2x.png');
@@ -116,7 +118,6 @@ pre, code {
 }
 
 #menu .pure-menu-heading {
-  font-size: 125%;
   font-weight: 300;
   letter-spacing: 0.1em;
   color: #fff;
@@ -124,6 +125,16 @@ pre, code {
   padding: 0.5em 0.8em;
   text-transform: uppercase;
 }
+#menu .wfg-menu-heading {
+    text-align: center;
+    padding: 0;
+    margin: 0;
+    font-size: 3em;
+    font-weight: 700;
+}
+
+#menu .wfg-menu-userbar { display: table; margin: 0 auto; }
+#menu .wfg-menu-login { padding: .2em; }
 
 .smaller {
   font-size: 80%;
@@ -142,6 +153,25 @@ pre, code {
 
 .pure-form input[type=color]:focus, .pure-form input[type=date]:focus, .pure-form input[type=datetime-local]:focus, .pure-form input[type=datetime]:focus, .pure-form input[type=email]:focus, .pure-form input[type=month]:focus, .pure-form input[type=number]:focus, .pure-form input[type=password]:focus, .pure-form input[type=search]:focus, .pure-form input[type=tel]:focus, .pure-form input[type=text]:focus, .pure-form input[type=time]:focus, .pure-form input[type=url]:focus, .pure-form input[type=week]:focus, .pure-form select:focus, .pure-form textarea:focus {
     border-color:#129fea
+}
+
+form {
+  width: 100%;
+}
+.form-group {
+  display: grid;
+  grid-template-columns: 30% 40% 30%;
+  grid-template-rows: auto;
+  grid-gap: 1em;
+  grid-row-gap: 1em;
+  margin: .5em 0 .5em 0;
+}
+label {
+  grid-column: 1 / 2;
+}
+ 
+input, button {
+  grid-column: 2 / 2;
 }
 
 article header {
@@ -194,4 +224,343 @@ article.listing > header span.byline {
 
 .pure-g {
   letter-spacing: normal;
+}
+.pure-u-1-2 {
+  padding: 1em;
+}
+
+.pure-img-responsive {
+    max-width: 100%;
+    height: auto;
+}
+
+/*
+Add transition to containers so they can push in and out.
+*/
+#layout,
+#menu,
+.menu-link {
+    -webkit-transition: all 0.2s ease-out;
+    -moz-transition: all 0.2s ease-out;
+    -ms-transition: all 0.2s ease-out;
+    -o-transition: all 0.2s ease-out;
+    transition: all 0.2s ease-out;
+}
+
+/*
+This is the parent `<div>` that contains the menu and the content area.
+*/
+.wfg-home-wrapper {
+  display: grid;
+  grid-template-columns: [left-gutter] 1fr [wrapper] 10fr [right-gutter] 1fr;
+}
+.wfg-home-left { grid-column: left-gutter; }
+.wfg-home-right { grid-column: right-gutter; }
+.wfg-home-content {
+  grid-column: wrapper;
+  display: grid;
+  grid-template-columns: [left-side] 1fr [middle] 3fr [right-side] 1fr;
+  text-align: center;
+  padding: .5em;
+}
+
+.wfg-top-block {
+  grid-column: middle;
+  display: grid;
+  grid-template-columns: [left-top-block] 3fr [right-top-block] 2fr;
+  text-align: left;
+  justify-items: start;
+  padding-bottom: 1em;
+  border-bottom: 1px solid #afafaf;
+}
+.wfg-top-block p { margin: 0; }
+.wfg-top-block-info {
+  grid-column: left-top-block;
+}
+.wfg-top-block-banner {
+  display: block;
+  grid-column: left-top-block;
+  width: 100%;
+  height: 60px;
+  background: #454545;
+}
+.wfg-top-block-voting {
+  grid-column: right-top-block;
+  margin-left: 1em;
+}
+
+#layout {
+    position: relative;
+    left: 0;
+    padding-left: 0;
+    @media (min-width: 48em) {
+        padding-left: 150px; /* left col width "#menu" */
+        left: 0;
+    }
+}
+#layout.active {
+    @media (max-width: 48em) {
+        position: relative;
+        left: 150px;
+    }
+}
+    #layout.active #menu {
+        left: 150px;
+        width: 150px;
+    }
+
+    #layout.active .menu-link {
+      left: 150px;
+      
+      @media (min-width: 48em) {
+          left: 140px;
+      }
+    }
+
+.content {
+    margin: 0 auto;
+    padding: 0 2.2em;
+    max-width: 92em;
+    margin-bottom: 50px;
+    margin-right: 0;
+    line-height: 1.6em;
+    @media (min-width: 48em) {
+      padding-left: 2em;
+      padding-right: 2em;
+      margin-right: 170px;
+    }
+
+}
+#listings-content {
+  display: flex;
+  @media (min-width: 48em) {
+    display: inline-block;
+  }
+}
+
+.pagination li { display: inline-block; }
+
+.wfg-pagination-links {
+  display: table;
+  margin: 0 auto;
+}
+.wfg-pagination-top { top: .2em; } 
+.wfg-pagination-bottom { bottom: .2em; }
+.wfg-listing-block {
+  display: inline-block;
+  width: 94%; padding: 1em;
+  @media (min-width: 48em) {
+    width: 45%; padding: .7em;
+  }
+  @media (min-width: 62em) {
+    width: 28%; padding: .5em;
+  }
+}
+.wfg-listing-block-id { display: none; }
+.wfg-listing-block-title { font-weight: 400; }
+.wfg-listing-block-author { display: inline-block; }
+.wfg-listing-block-status { display: inline-block; font-style: italic; }
+.wfg-listing-block-blurb { display: inline-block; margin: .2em; }
+.wfg-listing-block-home { font-weight: 400; }
+
+.wfg-editing-column { width: 45%; }
+
+header {
+   margin: 0;
+   color: #333;
+   text-align: center;
+   padding: 0;
+   border-bottom: 1px solid #eee;
+}
+header h1 {
+    margin: 0.2em 0;
+    font-size: 3em;
+    font-weight: 300;
+}
+header h2 {
+    font-weight: 300;
+    color: #ccc;
+    padding: 0;
+}
+
+.content-subhead {
+    margin: 50px 0 20px 0;
+    font-weight: 300;
+    color: #888;
+}
+
+/*
+Area for content tweaks of sub-elements
+*/
+
+.vote { display: inline-block; cursor: pointer; }
+.voteTitle { display: inline-block; font-weight: 600; }
+
+.item img { width: 100%; height: auto; }
+
+.wfg-text-carousel { 
+  width: 85%; 
+  margin: auto;
+  margin-top: 1em;
+  @media (min-width: 48em) { margin: 0 auto; margin-top: 0; }
+}
+.wfg-text-carousel .carousel-control-prev { left: -70px; }
+.wfg-text-carousel .carousel-control-next { right: -65px; }
+
+.wfg-text-carousel .carousel-indicators { position: relative; }
+ol.carousel-indicators li,
+ol.carousel-indicators li.active {
+  float: left;
+  width: 100%;
+  height: 10px;
+  margin: 0 3px 0 3px;
+  border-radius: 0;
+  border: 0;
+  background: transparent;
+}
+ol.carousel-indicators li { background: #454545; }
+ol.carousel-indicators li.active { background: #1F8DD6; }
+
+/*
+Menu Formatting
+*/
+
+#menu {
+    margin-left: -150px; /* "#menu" width */
+    width: 150px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    z-index: 1000; /* so the menu or its navicon stays above all content */
+    background: #191818;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    @media (min-width: 48em) {
+        left: 150px;
+    }
+
+}
+    /*
+    All anchors inside the menu should be styled like this.
+    */
+    #menu a {
+        color: #999;
+        border: none;
+        padding: 0.6em 0 0.6em 0.6em;
+    }
+
+    /*
+    Remove all background/borders, since we are applying them to #menu.
+    */
+     #menu .pure-menu,
+     #menu .pure-menu ul {
+        border: none;
+        background: transparent;
+    }
+
+    /*
+    Add that light border to separate items into groups.
+    */
+    #menu .pure-menu ul,
+    #menu .pure-menu .menu-item-divided {
+        border-top: 1px solid #333;
+    }
+        /*
+        Change color of the anchor links on hover/focus.
+        */
+        #menu .pure-menu li a:hover,
+        #menu .pure-menu li a:focus {
+            background: #333;
+        }
+
+    /*
+    This styles the selected menu item `<li>`.
+    */
+    #menu .pure-menu-selected,
+    #menu .pure-menu-heading {
+        background: #1f8dd6;
+    }
+        /*
+        This styles a link within a selected menu item `<li>`.
+        */
+        #menu .pure-menu-selected a {
+            color: #fff;
+        }
+
+    /*
+    This styles the menu heading.
+    */
+    #menu .pure-menu-heading {
+        color: #fff;
+        margin: 0;
+    }
+
+.menu-link {
+    position: fixed;
+    display: block; /* show this only on small screens */
+    top: 0;
+    left: 0; /* "#menu width" */
+    background: #000;
+    background: rgba(0,0,0,0.7);
+    font-size: 10px; /* change this value to increase/decrease button size */
+    z-index: 10;
+    width: 2em;
+    height: auto;
+    padding: 2.1em 1.6em;
+
+    @media (min-width: 48em) {
+        position: fixed;
+        left: 150px;
+        display: none;
+    }
+
+}
+
+    .menu-link:hover,
+    .menu-link:focus {
+        background: #000;
+    }
+
+    .menu-link span {
+        position: relative;
+        display: block;
+    }
+
+    .menu-link span,
+    .menu-link span:before,
+    .menu-link span:after {
+        background-color: #fff;
+        width: 100%;
+        height: 0.2em;
+    }
+
+        .menu-link span:before,
+        .menu-link span:after {
+            position: absolute;
+            margin-top: -0.6em;
+            content: " ";
+        }
+
+        .menu-link span:after {
+            margin-top: 0.6em;
+        }
+
+
+#rightinfo {
+  width: 170px;
+  padding-left: 20px;
+  margin-right: -170px;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1000; /* so the menu or its navicon stays above all content */
+  background: #191818;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  @media (min-width: 48em) {
+      right: 170px;
+  }
+
 }

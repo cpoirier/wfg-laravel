@@ -8,10 +8,10 @@
   <meta name="viewport" content="width=device-width">
 
   <link rel="stylesheet" href="{{ URL::asset('css/app.css') }}">
+  <script src="{{ URL::asset('js/app.js') }}"></script>
 
   @stack('head_links')
   @stack('head_scripts')
-
 </head>
 <body>
   <p class="skip-link__wrapper">
@@ -26,16 +26,7 @@
       <span></span>
     </a>
 
-    <nav id="menu">
-      <div class="pure-menu">
-        <a class="pure-menu-heading" href="/" title="@yield('title')" rel="home">WFG</a>
-        @section('side_panel')
-          <ul class="pure-menu-list">
-            @stack('menu_items')
-          </ul>
-        @show
-      </div>
-    </nav>
+    @include('menus.menu-default')
 
     <main id="main">
       <a name="content"></a>
@@ -46,6 +37,8 @@
         @show
       </div>
     </main>
+    
+    @include('menus.menu-right')
   </div>
 
 </body>

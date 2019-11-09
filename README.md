@@ -51,7 +51,9 @@ npm cache clear --force
 
 npm install
 
-npm run dev
+## Starting the Site
+
+npm run watch &
 
 
 cp .env.example .env
@@ -60,3 +62,9 @@ php artisan key:generate
 
 
 docker-compose up &
+
+## Stopping the site
+
+fg
+CTRL+C
+docker-compose down
