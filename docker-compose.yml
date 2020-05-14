@@ -12,6 +12,7 @@ services:
       - MARIADB_PASSWORD=my_password
     volumes:
       - ../db:/bitnami/mariadb
+      - ../wfg.sql:/docker-entrypoint-initdb.d/wfg.sql
 
   wfg:
     tty: true

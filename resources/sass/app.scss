@@ -4,5 +4,8 @@
 // Variables
 @import 'variables';
 
-// Bootstrap
-@import '~bootstrap/scss/bootstrap';
+// Pure CSS
+@import '~purecss-sass/vendor/assets/stylesheets/purecss';
+@import 'bootstrap-carousel';
+@import 'wfg-default';
+@import 'jawaters-overrides';

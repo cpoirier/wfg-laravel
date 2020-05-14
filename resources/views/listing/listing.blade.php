@@ -1,7 +1,7 @@
 @extends('layouts.default')
 
 @push('menu_items')
-  <li class="pure-menu-item"><a href="/start/" class="pure-menu-link">Get Started</a></li>
+  <li class="pure-menu-item"><a href="/start/" class="pure-menu-link">Start Reading</a></li>
 @endpush
 
 @section('content')
@@ -40,7 +40,10 @@
       </div>
 
       <div class="pure-u-1 pure-u-md-7-24 meta">
-        <p><b>Votes:</b> {{$listing->up_votes}} ▲ {{$listing->down_votes}} ▽ </p>
+        <voting-component
+          up_votes="{{ $listing->up_votes }}"
+          down_votes="{{ $listing->down_votes }}"
+        ></voting-component>
         <p><b>Listed:</b> {{ $listing->created_at->format('F d, Y') }}</p>
         <p><b>Status:</b> {{ $listing->status }}</p>
 
